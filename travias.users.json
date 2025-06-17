@@ -1,0 +1,51 @@
+[{
+  "_id": {
+    "$oid": "684fef924be7a933a0a992f5"
+  },
+  "name": "KFS Developer",
+  "email": "kfs211124@gmail.com",
+  "username": "kfsdeveloper@002",
+  "password": "$2b$20$RL8cBV3FFin/QIdc1PyruuUcovKijOqiDaLSObgCZc6JvAxg/nEBq",
+  "role": "admin",
+  "createdAt": {
+    "$date": "2025-06-16T10:18:58.960Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-16T10:18:58.960Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "684ff0154be7a933a0a992f9"
+  },
+  "name": "Ravi Kumar",
+  "email": "ravikumar002@gmail.com",
+  "username": "ravikumar@002",
+  "password": "$2b$10$7jdX6ANcvQMjBkzqw/EwRuPcy/rI60VCUoKoqA.OhMp61qD4hihtW",
+  "role": "admin",
+  "createdAt": {
+    "$date": "2025-06-16T10:21:09.623Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-16T10:21:09.623Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6850fdbf50351f8227b16a4a"
+  },
+  "name": "KFS Developer 2",
+  "email": "kfsdeveloper1213gmail.com",
+  "username": "kfsdeveloper@1213",
+  "password": "$2b$10$0DhLqHBQT.HhvrUaVp6zsehhvx6jpIcKxFuxi8tZ/Lfmrh/6L3VJ6",
+  "role": "admin",
+  "createdAt": {
+    "$date": "2025-06-17T05:31:43.263Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T05:31:43.263Z"
+  },
+  "__v": 0
+}]
