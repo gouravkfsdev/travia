@@ -2,8 +2,10 @@
 
 export default function Footer() {
   return (
-    <footer className="bg-white shadow-inner p-4 text-center text-sm text-gray-500">
-      &copy; {new Date().getFullYear()} MyApp. All rights reserved.
+  <footer className="bg-white border-t border-orange-200 px-4 lg:px-6 py-4 shadow-md">
+      <div className="text-center text-sm text-orange-700">
+        &copy; {new Date().getFullYear()} Admin Dashboard. All rights reserved.
+      </div>
     </footer>
   );
 }

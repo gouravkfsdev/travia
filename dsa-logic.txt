@@ -1,0 +1,113 @@
+**DSA-Based Features Implemented in Tourism Admin Panel ("MY Plan")**
+
+---
+
+### 1. Role-Based Access Control (RBAC)
+
+**DSA Concept:** Set / Map
+
+* Roles: Admin / Editor / Viewer
+* Use Maps to define permissions
+
+---
+
+### 2. Nested Comments / Review System
+
+**DSA Concept:** Tree + Recursion
+
+* `comments` collection with `parentId`
+* Recursive rendering of threaded replies
+
+---
+
+### 3. Visit Analytics
+
+**DSA Concept:** Prefix Sum / HashMap Frequency
+
+* Track daily visits in `visits` collection
+* Analyze: Last 7 days, Monthly visits, Top visitor cities, Top places
+
+---
+
+### 4. Nearby Places (Within 50km)
+
+**DSA Concept:** Geo / Graph / Greedy
+
+* MongoDB GeoSpatial Queries using `location.coordinates`
+* `$near` query to find places within 50km
+
+---
+
+### 5. Similar Places (Tag Matching)
+
+**DSA Concept:** Graph (Tag relationship)
+
+* Find places with overlapping tags and same city/state
+* Recommend similar places using shared tags
+
+---
+
+### 6. Trending / Top Rated Places
+
+**DSA Concept:** Custom Sorting / Comparator
+
+* Use logic: `views * rating`
+* Sort descending to get trending content
+
+---
+
+### 7. Auto Suggest (Search Bar)
+
+**DSA Concept:** Prefix Search / Trie
+
+* When user types "Ta" → Suggest "Taj Mahal"
+* MongoDB `$regex` for real-time prefix match
+
+---
+
+### 8. Tag-Based Filtering
+
+**DSA Concept:** Hashing / Sets
+
+* Filter places based on tags (e.g., historic, food, family)
+* Efficient querying using `$in` operator on tags array
+
+---
+
+### 9. You May Also Like
+
+**DSA Concept:** Graph / Tag Recommendation
+
+* Show related places (tags match, same location)
+* Avoid showing the same place (exclude current `_id`)
+
+---
+
+### 10. Visit History Per User / Location / City
+
+**DSA Concept:** Frequency Table / Aggregation
+
+* Group `visits` by `userId`, `city`, `placeId`
+* Summarize top visited data weekly/monthly
+
+---
+
+### 11. Infinite Scroll / Pagination
+
+**DSA Concept:** Sliding Window / Two Pointers
+
+* Load more places/comments as user scrolls
+* Pagination using skip/limit
+
+---
+
+### 12. Search Logging for Trends
+
+**DSA Concept:** Map / Count frequency
+
+* Store every search term in `search_logs`
+* Suggest popular queries
+
+---
+
+These features ensure the system is smart, efficient, scalable, and ready for analytics, recommendations, and user engagement features — all powered using DSA logic.

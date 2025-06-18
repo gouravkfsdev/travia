@@ -40,3 +40,21 @@ body {
   animation: slide-in-up 0.3s ease-out forwards;
 }
 
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #faa934 #ffffffee; /* thumb, track */
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f5f5f5; /* Light gray track */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #faa934; /* Dark blue thumb */
+  border-radius: 2px;
+}
+
