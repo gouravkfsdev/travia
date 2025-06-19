@@ -60,7 +60,7 @@ export async function POST(req: NextRequest) {
       httpOnly: true,
       secure: true,
       sameSite: 'strict',
-      maxAge: 60 * 15, // 15 minutes
+      maxAge: 24 * 60 * 60, // 24 hours in milliseconds
       path: '/'
     });
 
