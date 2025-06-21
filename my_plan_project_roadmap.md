@@ -10,7 +10,7 @@ MY PLAN is a full-stack tourism web platform built using Next.js and MongoDB wit
 
 - [x] Next.js (TypeScript) project setup
 - [x] Admin layout (Header, Sidebar, MainBody)
-- [x] Setup MongoDB (Atlas/local)
+- [ ] Setup MongoDB (Atlas/local)
 - [ ] Define environment variables
 
 ---

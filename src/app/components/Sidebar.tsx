@@ -3,17 +3,29 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
-  faUsers,
-  faChartBar,
   faShoppingCart,
-  faCog,
   faTimes,
   faPowerOff,
   faUser,
   faChevronDown,
   faChargingStation,
+  faMapMarkedAlt,
+  faCity,
+  faUsers,
+  faChartBar,
+  faTags,
+  faCommentDots,
+  faStar,
+  faSearch,
+  faImage,
+  faCog,
+  faBell,
+  faList,
+  faGlobe,
+  faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { Constant } from "../api/constant";
 import { useAuth } from '../service/auth';
@@ -24,22 +36,107 @@ export interface SidebarProps {
 }
 
 export default function Sidebar({ isOpen, onClose }: SidebarProps) {
-  const [settingsOpen, setSettingsOpen] = useState(false);
+  const pathname = usePathname();
+  const [openDropdowns, setOpenDropdowns] = useState<Record<string, boolean>>({});
+
+  const toggleDropdown = (key: string) => {
+    setOpenDropdowns((prev) => ({ ...prev, [key]: !prev[key] }));
+  };
   const router = useRouter();
   const { user, loading } = useAuth();
   const menuItems = [
-    { icon: faHome, label: "Dashboard", active: true, href: "/auth/dashboard" },
-    { icon: faUsers, label: "Users", href: "/auth/users" },
-    { icon: faChartBar, label: "Analytics", href: "#" },
-    { icon: faShoppingCart, label: "Orders", href: "#" },
-    { icon: faCog, label: "Settings", href: "#" },
     {
-      icon: faChargingStation,
-      label: "State",
-      dropdown: true,
+      icon: faHome,
+      label: "Dashboard",
+      href: "/auth/dashboard",
+    },
+    {
+      icon: faMapMarkedAlt,
+      label: "Places",
+      href: "/auth/places",
+    },
+    {
+      icon: faGlobe,
+      label: "Countries",
+      dropdownKey: "countries",
       submenu: [
-        { label: "Chart Settings", href: "#" },
-        { label: "Graph Settings", href: "#" },
+        { label: "All Countries", href: "/auth/countries" },
+        { label: "Add Country", href: "/auth/countries/add" },
+      ],
+    },
+    {
+      icon: faMapMarkedAlt,
+      label: "States",
+      dropdownKey: "states",
+      submenu: [
+        { label: "All States", href: "/auth/states" },
+        { label: "Add State", href: "/auth/states/add" },
+      ],
+    },
+    {
+      icon: faCity,
+      label: "Cities",
+      dropdownKey: "cities",
+      submenu: [
+        { label: "All Cities", href: "/auth/cities" },
+        { label: "Add City", href: "/auth/cities/add" },
+      ],
+    },
+    {
+      icon: faTags,
+      label: "Tags & Travel Types",
+      href: "/auth/tags",
+    },
+    {
+      icon: faCommentDots,
+      label: "Comments",
+      dropdownKey: "comments",
+      submenu: [
+        { label: "All Comments", href: "/auth/comments" },
+        { label: "Reported Comments", href: "/auth/comments/reported" },
+      ],
+    },
+    {
+      icon: faStar,
+      label: "Ratings",
+      href: "/auth/ratings",
+    },
+    {
+      icon: faChartBar,
+      label: "Analytics",
+      dropdownKey: "analytics",
+      submenu: [
+        { label: "Visit Analytics", href: "/auth/analytics/visits" },
+        { label: "Top Places", href: "/auth/analytics/trending" },
+      ],
+    },
+    {
+      icon: faUsers,
+      label: "Users & Roles",
+      href: "/auth/users",
+    },
+    {
+      icon: faSearch,
+      label: "Search Logs",
+      href: "/auth/search-logs",
+    },
+    {
+      icon: faImage,
+      label: "Media Manager",
+      href: "/auth/media",
+    },
+    {
+      icon: faBell,
+      label: "Notifications",
+      href: "/auth/notifications",
+    },
+    {
+      icon: faCog,
+      label: "Settings",
+      dropdownKey: "settings",
+      submenu: [
+        { label: "SEO Settings", href: "/auth/settings/seo" },
+        { label: "General Settings", href: "/auth/settings/general" },
       ],
     },
   ];
@@ -92,54 +189,61 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
         <div className="flex flex-col justify-between h-[calc(100vh-64px)]">
           {/* Main Nav Items */}
           <nav className="px-2 py-4 space-y-1 h-full overflow-y-auto custom-scrollbar">
-            {menuItems.map((item, index) => (
-              <div key={index}>
-                <a
-                  href={item.href || "#"}
-                  className={`flex items-center justify-between px-3 py-2 rounded text-sm font-medium transition-colors w-full
-                  ${
-                    item.active
-                      ? "bg-[#184062] text-white shadow-md"
-                      : "text-[#184062] hover:bg-[#e58d0f] hover:text-white"
-                  }`}
-                  onClick={(e) => {
-                    if (item.dropdown) {
-                      e.preventDefault();
-                      setSettingsOpen(!settingsOpen);
-                    }
-                  }}
-                >
-                  <div className="flex items-center">
-                    <FontAwesomeIcon
-                      icon={item.icon}
-                      className="h-5 w-5 mr-3"
-                    />
-                    {item.label}
-                  </div>
-                  {item.dropdown && (
-                    <FontAwesomeIcon
-                      icon={faChevronDown}
-                      className={`transition-transform ${
-                        settingsOpen ? "rotate-180" : ""
+            {menuItems.map((item, index) => {
+              const isActive = pathname.startsWith(item.href || "") && !item.dropdownKey;
+              const isDropdownOpen = item.dropdownKey && openDropdowns[item.dropdownKey];
+
+              return (
+                <div key={index}>
+                  <a
+                    href={item.href || "#"}
+                    className={`flex items-center justify-between px-3 py-2 rounded text-sm font-medium transition-colors w-full
+                ${isActive
+                        ? "bg-[#184062] text-white shadow-md"
+                        : "text-[#184062] hover:bg-[#e58d0f] hover:text-white"
                       }`}
-                    />
+                    onClick={(e) => {
+                      if (item.dropdownKey) {
+                        e.preventDefault();
+                        toggleDropdown(item.dropdownKey);
+                      }
+                    }}
+                  >
+                    <div className="flex items-center">
+                      <FontAwesomeIcon icon={item.icon} className="h-5 w-5 mr-3" />
+                      {item.label}
+                    </div>
+                    {item.dropdownKey && (
+                      <FontAwesomeIcon
+                        icon={faChevronDown}
+                        className={`transition-transform ${isDropdownOpen ? "rotate-180" : ""}`}
+                      />
+                    )}
+                  </a>
+
+                  {item.dropdownKey && isDropdownOpen && (
+                    <div className="ml-8 mt-1 space-y-1">
+                      {item.submenu?.map((subItem, subIndex) => {
+                        const isSubActive = pathname.startsWith(subItem.href);
+                        return (
+                          <a
+                            key={subIndex}
+                            href={subItem.href}
+                            className={`block text-sm px-3 py-1 rounded 
+                        ${isSubActive
+                                ? "bg-[#184062] text-white shadow"
+                                : "text-[#184062] hover:bg-[#e58d0f] hover:text-white"
+                              }`}
+                          >
+                            {subItem.label}
+                          </a>
+                        );
+                      })}
+                    </div>
                   )}
-                </a>
-                {item.dropdown && settingsOpen && (
-                  <div className="ml-8 mt-1 space-y-1">
-                    {item.submenu?.map((subItem, subIndex) => (
-                      <a
-                        key={subIndex}
-                        href={subItem.href}
-                        className="block text-sm text-[#184062] hover:bg-[#e58d0f] hover:text-white px-3 py-1 rounded"
-                      >
-                        {subItem.label}
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
+                </div>
+              );
+            })}
           </nav>
 
           {/* Bottom Icon Row */}

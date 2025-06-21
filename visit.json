@@ -1,0 +1,147 @@
+[
+  {
+    "_id": ObjectId("place_tajmahal"),
+    "name": "Taj Mahal",
+    "slug": "taj-mahal",
+    "stateId": ObjectId("state_uttarpradesh"),
+    "cityId": ObjectId("city_agra"),
+    "location": {
+      "type": "Point",
+      "coordinates": [78.0421, 27.1751]
+    },
+    "overview": "Symbol of eternal love and architectural marvel.",
+    "highlights": ["UNESCO Heritage", "Must Visit"],
+    "entryFee": "₹1100",
+    "timings": {
+      "open": "06:00 AM",
+      "close": "07:00 PM",
+      "closedDays": ["Friday"]
+    },
+    "bestTime": {
+      "winter": "Oct - Mar",
+      "summer": "Apr - Jun",
+      "monsoon": "Jul - Sep",
+      "sunrise": "6:00 AM - 8:00 AM"
+    },
+    "tags": ["historic", "unesco", "romantic", "architecture"],
+    "photoGallery": ["/images/taj1.jpg", "/images/taj2.jpg"],
+    "transportation": {
+      "airport": "Agra Airport - 6 km",
+      "railway": "Agra Cantt - 5 km",
+      "bus": "Agra Bus Stand - 4 km",
+      "metro": true
+    },
+    "nearbyAttractions": [
+      { "placeId": ObjectId("place_agrafort"), "distanceKm": 2.5 }
+    ],
+    "recommendedHotels": ["Taj View Hotel", "The Oberoi Amarvilas"],
+    "restaurants": [
+      { "name": "Pinch of Spice", "rating": 4.5, "type": "Multi-cuisine", "distanceKm": 1.2 },
+      { "name": "Peshawri", "rating": 4.6, "type": "North Indian", "distanceKm": 3.2 }
+    ],
+    "amenities": ["Shopping Mall", "Medical Facility", "Local Market"],
+    "travelTips": [
+      "Try local Agra specialties",
+      "Book in advance for fine dining",
+      "Vegetarian options widely available"
+    ],
+    "visitorGuidelines": {
+      "allowed": ["Camera (no tripods)", "Valid ID", "Water bottle"],
+      "notAllowed": ["Food & drinks", "Tobacco", "Large bags"]
+    },
+    "history": {
+      "builtBy": "Shah Jahan",
+      "year": "1632–1653",
+      "workers": 20000,
+      "material": "White marble"
+    },
+    "security": {
+      "police": true,
+      "medical": true,
+      "helpline": "24/7 Tourist Helpline"
+    },
+    "seo": {
+      "title": "Taj Mahal, Agra - Visit Info, Timings, Tickets | MY Plan",
+      "description": "Explore the Taj Mahal in Agra - entry fee, opening hours, nearby hotels, history, and travel tips.",
+      "keywords": ["Taj Mahal", "Agra Tourism", "UNESCO", "Historic Monument India"],
+      "url": "/places/taj-mahal"
+    },
+    "views": 140000,
+    "rating": 4.8,
+    "analytics": [
+      { "year": 2023, "monthly": { "Jan": 9500, "Feb": 8800, "Mar": 12000 }, "rating": 4.7 },
+      { "year": 2024, "monthly": { "Jan": 13400, "Feb": 14300, "Mar": 12900 }, "rating": 4.8 }
+    ]
+  },
+  {
+    "_id": ObjectId("place_agrafort"),
+    "name": "Agra Fort",
+    "slug": "agra-fort",
+    "stateId": ObjectId("state_uttarpradesh"),
+    "cityId": ObjectId("city_agra"),
+    "location": {
+      "type": "Point",
+      "coordinates": [78.033, 27.1795]
+    },
+    "overview": "UNESCO World Heritage Site with stunning Mughal architecture.",
+    "highlights": ["UNESCO Heritage", "Architectural Wonder"],
+    "entryFee": "₹600",
+    "timings": {
+      "open": "06:00 AM",
+      "close": "06:00 PM",
+      "closedDays": []
+    },
+    "bestTime": {
+      "winter": "Oct - Mar",
+      "summer": "Apr - Jun",
+      "monsoon": "Jul - Sep"
+    },
+    "tags": ["historic", "unesco", "fort", "mughal"],
+    "photoGallery": ["/images/agrafort1.jpg", "/images/agrafort2.jpg"],
+    "transportation": {
+      "airport": "Agra Airport - 7 km",
+      "railway": "Agra Fort Station - 1.5 km",
+      "bus": "Agra Bus Stand - 3 km"
+    },
+    "nearbyAttractions": [
+      { "placeId": ObjectId("place_tajmahal"), "distanceKm": 2.5 }
+    ],
+    "recommendedHotels": ["ITC Mughal", "Jaypee Palace"],
+    "restaurants": [
+      { "name": "Dasaprakash", "rating": 4.2, "type": "South Indian", "distanceKm": 2.7 },
+      { "name": "Esphahan", "rating": 4.7, "type": "Fine Dining", "distanceKm": 2.1 }
+    ],
+    "amenities": ["Souvenir Shops", "Rest Areas", "Drinking Water"],
+    "travelTips": [
+      "Hire a local guide for best experience",
+      "Carry a hat and sunscreen",
+      "Avoid weekends to skip crowds"
+    ],
+    "visitorGuidelines": {
+      "allowed": ["Cameras", "Guidebooks"],
+      "notAllowed": ["Smoking", "Loud music"]
+    },
+    "history": {
+      "builtBy": "Akbar",
+      "year": "1565–1573",
+      "material": "Red sandstone"
+    },
+    "security": {
+      "police": true,
+      "medical": true,
+      "helpline": "24/7 Assistance"
+    },
+    "seo": {
+      "title": "Agra Fort - History, Timings, Ticket Info | MY Plan",
+      "description": "Discover Agra Fort, a Mughal masterpiece. Entry fee, timings, history, photos and more.",
+      "keywords": ["Agra Fort", "Mughal Fort", "UNESCO", "Tourism India"],
+      "url": "/places/agra-fort"
+    },
+    "views": 85000,
+    "rating": 4.6,
+    "analytics": [
+      { "year": 2023, "monthly": { "Jan": 7200, "Feb": 6500, "Mar": 9100 }, "rating": 4.5 },
+      { "year": 2024, "monthly": { "Jan": 9700, "Feb": 10500, "Mar": 10100 }, "rating": 4.6 }
+    ]
+  }
+]
